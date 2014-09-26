@@ -9,7 +9,7 @@ using namespace std;
 int LongestPalindromeSub(string);
 
 int main(){
-    string str = "babcecbf";
+    string str = "babcecbac";
     int len = LongestPalindromeSub(str);
     cout<<len<<endl;
     return 0;
@@ -31,11 +31,12 @@ int LongestPalindromeSub(string str){
         }
     }
     //dp
-    for(int i = 0; i+1 < n; i++){
-        for(int j = i+2; j < n; j++){
-            check[i][j] = check[i+1][j-1] && (str[i] == str[j]);
-            if(check[i][j]){
-                max_len = max(max_len, j-i+1);
+    for(int k = 2; k < n; k++){
+        for(int i = 0; i < n; i++){
+            if(i+k >= n) continue;
+            check[i][i+k] = check[i+1][i+k-1] && (str[i] == str[i+k]);
+            if(check[i][i+k]){
+                max_len = max(max_len, k+1);
             }
         }
     }

@@ -27,7 +27,6 @@ int main(){
     node* n6 = new node(6);
     node* n7 = new node(7);
 
-
     root->left = n1;
     root->right = n2;
     n1->left = n3;
@@ -73,8 +72,3 @@ node* lca(node* root, node* a, node* b){
     if(L && R) return root;
     return L? L: R;
 }
-
-
-
-
-
