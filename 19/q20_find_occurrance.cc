@@ -33,6 +33,9 @@ int lower_bound(vector<int> &v, int target){
         if(v[mid] < target){
             left =  mid+1;
         }
+        else if(v[mid] == target){
+            right = mid;
+        }
         else{
             right = mid;
         }
@@ -40,13 +43,16 @@ int lower_bound(vector<int> &v, int target){
     return left;
 }
 
-//find upper_bound of target
+//find upper_bound of target : first one large than target
 int upper_bound(vector<int> &v, int target){
     int left = 0;
     int right = v.size() - 1;
     while(left < right){
         int mid = left + (right-left)/2;
-        if(v[mid] <= target){
+        if(v[mid] < target){
+            left = mid+1;
+        }
+        else if(v[mid] == target){
             left = mid+1;
         }
         else{
