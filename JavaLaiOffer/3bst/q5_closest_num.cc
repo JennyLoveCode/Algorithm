@@ -1,5 +1,5 @@
 /*
-5 binary search tree, closest number to target(sorted array, closest number to target)
+binary search tree, closest number to target(sorted array, closest number to target)
                                      7
                                 /          \
                             4               9
