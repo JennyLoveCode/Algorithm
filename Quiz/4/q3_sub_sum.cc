@@ -1,4 +1,7 @@
-/**/
+/*
+Q3  Given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive 
+integer value that cannot be represented as sum of elements of any sub-sequence of the given array. 
+*/
 
 #include <iostream>
 #include <vector>

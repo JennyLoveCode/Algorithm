@@ -8,7 +8,7 @@ using namespace std;
 int main(){
     string left = "([{";
     string right = ")]}";
-    Pa
+
 }
 
 void Parenthesis(){

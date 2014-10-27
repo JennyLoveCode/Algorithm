@@ -21,3 +21,50 @@ notation calculation on them
 Reverse Polish notation advantage: we can calculate the final result without worrying 
 about the precedence of the operator. 3 + 35 + ( )….
 */
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <string>
+using namespace std;
+
+int Convert(vector<string> str);
+bool IsOperator (string c);
+
+int main () {
+    string arr[] = {"5","10","+","2","*"};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    vector<string> str(arr, arr+n);
+    int res = Convert(str);
+    cout<<res<<endl;
+    return 0;
+}
+
+int Convert(vector<string> str){
+    stack<int> s;
+    for (int i = 0; i < str.size(); ++i) {
+        if (IsOperator(str[i])) {
+            int x = s.top();
+            s.pop();
+            int y = s.top();
+            s.pop();
+            if (str[i].compare("+") == 0) {
+                x += y;
+            } else if (str[i].compare("-") == 0) {
+                x -= y;
+            } else if (str[i].compare("*") == 0) {
+                x *= y;
+            } else if (str[i].compare("/") == 0){
+                x /= y;
+            }
+            s.push(x);
+            
+        } else {
+            s.push(stoi(str[i]));
+        }
+    }
+    return s.top();
+}
+
+bool IsOperator (string s) {
+    return s.compare("+")*s.compare("-")*s.compare("*")*s.compare("/") == 0;
+}
